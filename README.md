@@ -72,16 +72,21 @@ BioDRUMs operates on already deconvoluted intact MS data. You will also need:
 A deconvolution software (e.g. BioPharma Finder 4.0 with ReSpect™, or other tools that export tabular deconvolution results)
 The corresponding **Excel template** for BioDRUMs input (see below: Input templates)
 
-Input templates
+**Input templates**
+
 BioDRUMs operates on a template Excel file that contains the deconvoluted species and metadata required for the analysis (see Tables S1–S3 in the paper).
 
 
 Typical columns include (minimal example):
 
-Protein_Name – identifier for the ADC or biologic
-DAR_Value – DAR of each individual species (or SI descriptor in unconjugated cases)
-Sum_Intensity – deconvoluted peak intensity (used as abundance measure)
-Mass – experimental deconvoluted mass
+**Protein_Name** – identifier for the ADC or biologic
+
+**DAR_Value** – DAR of each individual species (or SI descriptor in unconjugated cases)
+
+**Sum_Intensity** – deconvoluted peak intensity (used as abundance measure)
+
+**Mass** – experimental deconvoluted mass
+
 Additional metadata (timepoint, concentration, matrix type, study ID, etc.)
 You can either:
 
