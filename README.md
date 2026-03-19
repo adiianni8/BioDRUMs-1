@@ -41,8 +41,11 @@ Mean SI values for unconjugated biologics, where intact full‑domain species ar
 Accepts table‑formatted deconvolution output from commercial and open‑access software (e.g., BioPharma Finder ReSpect™, UniDec, others), as long as the table includes:
 a species mass / ID
 **DAR value** for each species (when applicable)
+
 **protein name**
+
 **sum intensity**
+
 Data filtering based on user‑tunable thresholds (default settings= 30 ppm mass accuracy, 4% relative abundance vs base peak)
 
 **User‑friendly GUI**
