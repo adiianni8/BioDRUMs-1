@@ -17,7 +17,7 @@ BioDRUMs (Biologics Drug Ratio & Unified intact Mass analysis) is a Python pipel
 
 **Quality control (QC)** on intact MS data (explained area %, isobaric species count)
 
-It is designed to work on intact protein data from high‑resolution MS instruments and to standardize data processing across in vitro and in vivo studies (e.g. plasma stability, pharmacokinetics), including low‑volume small‑animal studies where replicate injections are often not feasible. It also works quite well for ADCs/biologics characterization in buffer, where high amount of sample is available.
+It is designed to work on intact protein data from high‑resolution MS instruments and to standardize data processing across in vitro and in vivo studies (e.g., plasma stability, pharmacokinetics), including low‑volume small‑animal studies where replicate injections are often not feasible. It also works quite well for ADCs/biologics characterization in buffer, where high amount of sample is available.
 
 If you use BioDRUMs in your work, please cite:
 
@@ -73,13 +73,13 @@ DAR / SI analysis, QC metrics, and plotting
 
 * Python ≥ 3.x
 
-* Standard scientific Python stack (e.g. pandas, numpy, matplotlib)
+* Standard scientific Python stack (e.g., pandas, numpy, matplotlib)
 
-* GUI library (e.g. tkinter in requirements.txt)
+* GUI library (e.g., tkinter in requirements.txt)
 
 BioDRUMs operates on already deconvoluted intact MS data. You will also need:
 
-* A deconvolution software (e.g. BioPharma Finder 4.0 with ReSpect™, or other tools that export tabular deconvolution results in .csv or .xlsx formats)
+* A deconvolution software (e.g., BioPharma Finder 4.0 with ReSpect™, or other tools that export tabular deconvolution results in .csv or .xlsx formats)
 The corresponding **Excel template** for BioDRUMs input (see below: Input templates)
 
 **Input templates**
@@ -101,7 +101,7 @@ Typical columns include (minimal example):
 
 You can either:
 
-Export a deconvolution table (e.g. from BioPharma Finder) and adapt it manually following the template, or use a helper script (if provided) that converts vendor output into the BioDRUMs template format.
+Export a deconvolution table and adapt it manually following the template, or use a helper script (if provided) that converts vendor output into the BioDRUMs template format.
 
 The repository includes:
 
@@ -122,13 +122,13 @@ This module (with a GUI) is used to generate proteoform structure hypotheses and
 
 * Paired cysteines involved in disulfide bonds or conjugation (in case of cysteine-conjugated proteins, do not include this in the paired cysteines count)
 
-* Engineered cysteines or hinge mutations (e.g. IgG4 stabilization, site‑specific conjugation)
+* Engineered cysteines or hinge mutations (e.g., IgG4 stabilization, site‑specific conjugation)
   
 Define:
 
 **Theoretical DAR ladder (from DAR0 up to a specified maximum)**
 
-* Linker–payload mass shifts (e.g. valine‑citrulline PABC MMAE; supports transglutaminase and interchain/engineered cysteine conjugation, but also click-chemistry or other conjugation types according to user's needs)
+* Linker–payload mass shifts (e.g., valine‑citrulline PABC MMAE; supports transglutaminase and interchain/engineered cysteine conjugation, but also click-chemistry or other conjugation types according to user's needs)
 
 * Potential linker–payload degradation products (for in vivo experiments)
 
@@ -136,7 +136,7 @@ Include:
 
 * Main glycosylated proteoforms (intact or at chain level), when deglycosylation is not possible ot residual glycoforms are still present in the sample after deglycosylation
 
-* Deglycosylated forms (e.g. after PNGase‑F treatment)
+* Deglycosylated forms (e.g., after PNGase‑F treatment)
 
 **Output:**
 
@@ -156,7 +156,7 @@ Specify:
 
 Set:
 
-* Mass accuracy tolerance (e.g. ±20 ppm, but it can be modified by the user)
+* Mass accuracy tolerance (e.g., ±20 ppm, but it can be modified by the user)
 * Relative abundance tolerance (e.g., set default as 4% of the base peak in MS)
 
 Run hypothesis generation to produce:
@@ -200,11 +200,11 @@ Set:
 
 * Molecule ID
 
-* Study type (e.g. in vitro stability, PK)
+* Study type (e.g., in vitro stability, PK)
 
 * Matrix (e.g. plasma)
 
-* X‑axis variable (e.g. time, concentration)
+* X‑axis variable (e.g., time, concentration)
 
 * Indicate whether to compute DAR (conjugates) or SI (unconjugated biologics)
 
