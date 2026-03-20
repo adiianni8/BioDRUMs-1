@@ -158,7 +158,7 @@ Specify:
 
 Set:
 
-* Mass accuracy tolerance (e.g., ±20 ppm, but it can be modified by the user)
+* Mass accuracy tolerance (e.g., ±30 ppm, but it can be modified by the user)
 * Relative abundance tolerance (e.g., set default as 4% of the base peak in MS)
 
 Run hypothesis generation to produce:
