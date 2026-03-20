@@ -181,13 +181,11 @@ Uses Equation 1 in the paper to compute mean DAR across all identified species a
 **Explained area percentage (%)**
 
 Calculates the percentage of total deconvoluted peak area that is assigned to modeled species.
-
 Typical acceptance threshold: ≥ 75% for good characterization (may drop near Limit Of Detection, especially in in vivo samples).
 
 **DAR / proteoform species characterization**
 
 For each timepoint/concentration, plots the relative intensity % of each identified species versus the total identified signal.
-
 Assigns a unique Species ID to each proteoform and writes an Excel mapping (Species_ID_Mapping sheet).
 
 **GUI workflow**
