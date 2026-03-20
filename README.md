@@ -105,9 +105,9 @@ Export a deconvolution table and adapt it manually following the template, or us
 
 The repository includes:
 
-templates/unified_DAR_template.xlsx – minimal working example
+* templates/unified_DAR_template.xlsx – minimal working example
 
-examples/ – example input and corresponding outputs for the use cases in the paper (in vitro stability and PK studies)
+* examples/ – example input and corresponding outputs for the use cases in the paper (in vitro stability and PK studies)
 
 **Modules & Workflow**
 
