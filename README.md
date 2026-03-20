@@ -36,11 +36,13 @@ BioDRUMs provides:
 **Unified DAR and SI analysis**
 
 * Mean DAR over time or concentration for ADCs/bioconjugates
+  
 * Mean SI values for unconjugated biologics, where intact full‑domain species are scored SI = 1 and non‑intact species SI = 0
 
 **Quality‑control metrics for intact MS experiments**
 
 **Explained area %**: percentage of deconvoluted MS peaks that can be assigned to modeled species (typical threshold ≥ 75%)
+
 **Isobaric species count** per DAR level or proteoform, to indicate assignment ambiguity (this is done on the whole set of generated DAR species, but you should look into your identified DAR species only)
 
 **Flexible input compatibility**
