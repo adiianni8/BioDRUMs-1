@@ -59,15 +59,13 @@ a species mass / ID
 
 Data filtering based on user‑tunable thresholds (default settings= 30 ppm mass accuracy, 4% relative abundance vs base peak)
 
-**User‑friendly GUI**
-
-No prior coding experience required
+**User‑friendly GUI** (No prior coding experience required)
 
 Dedicated windows for:
 
-Proteoform mass calculation and hypothesis generation
+* Proteoform mass calculation and hypothesis generation
 
-DAR / SI analysis, QC metrics, and plotting
+* DAR / SI analysis, QC metrics, and plotting
 
 **Installation**
 
