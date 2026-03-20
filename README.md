@@ -10,9 +10,13 @@ BioDRUMs (Biologics Drug Ratio & Unified intact Mass analysis) is a Python pipel
 BioDRUMs (Biologics Drug Ratio & Unified intact Mass analysis) is a Python pipeline with a graphical user interface (GUI) for automating:
 
 **Mean drug‑to‑antibody ratio (DAR)** analysis of antibody-drug conjugates (ADCs) and other bioconjugates
+
 **Structural integrity (SI)** analysis of unconjugated antibodies, bispecifics, and multispecific biologics
+
 **Proteoform hypothesis generation** and assignment after intact MS deconvolution
+
 **Quality control (QC)** on intact MS data (explained area %, isobaric species count)
+
 It is designed to work on intact protein data from high‑resolution MS instruments and to standardize data processing across in vitro and in vivo studies (e.g. plasma stability, pharmacokinetics), including low‑volume small‑animal studies where replicate injections are often not feasible. It also works quite well for ADCs/biologics characterization in buffer, where high amount of sample is available.
 
 If you use BioDRUMs in your work, please cite:
