@@ -23,13 +23,14 @@ BioDRUMs provides:
 
 **Automated proteoform hypothesis generation**
 
-Combines antibody backbone masses, theoretical DAR ladder, linker–payload and degradation products, and (optional) glycoforms
-Supports both glycosylated and deglycosylated intact proteins (glycan multiplier set to 2) or subunits(glycan multiplier set to 1).
+* Combines antibody backbone masses, theoretical DAR ladder, linker–payload and degradation products, and (optional) glycoforms
+
+* Supports both glycosylated and deglycosylated intact proteins (glycan multiplier set to 2) or subunits(glycan multiplier set to 1).
 
 **Unified DAR and SI analysis**
 
-Mean DAR over time or concentration for ADCs/bioconjugates
-Mean SI values for unconjugated biologics, where intact full‑domain species are scored SI = 1 and non‑intact species SI = 0
+* Mean DAR over time or concentration for ADCs/bioconjugates
+* Mean SI values for unconjugated biologics, where intact full‑domain species are scored SI = 1 and non‑intact species SI = 0
 
 **Quality‑control metrics for intact MS experiments**
 
@@ -55,21 +56,22 @@ No prior coding experience required
 Dedicated windows for:
 
 Proteoform mass calculation and hypothesis generation
+
 DAR / SI analysis, QC metrics, and plotting
 
 **Installation**
 
 **Requirements**
 
-Python ≥ 3.x
+* Python ≥ 3.x
 
-Standard scientific Python stack (e.g. pandas, numpy, matplotlib)
+* Standard scientific Python stack (e.g. pandas, numpy, matplotlib)
 
-GUI library (e.g. tkinter in requirements.txt)
+* GUI library (e.g. tkinter in requirements.txt)
 
 BioDRUMs operates on already deconvoluted intact MS data. You will also need:
 
-A deconvolution software (e.g. BioPharma Finder 4.0 with ReSpect™, or other tools that export tabular deconvolution results)
+* A deconvolution software (e.g. BioPharma Finder 4.0 with ReSpect™, or other tools that export tabular deconvolution results in .csv or .xlsx formats)
 The corresponding **Excel template** for BioDRUMs input (see below: Input templates)
 
 **Input templates**
@@ -79,102 +81,132 @@ BioDRUMs operates on a template Excel file that contains the deconvoluted specie
 
 Typical columns include (minimal example):
 
-**Protein_Name** – identifier for the ADC or biologic
+ * **Protein_Name** – identifier for the ADC or biologic
 
-**DAR_Value** – DAR of each individual species (or SI descriptor in unconjugated cases)
+* **DAR_Value** – DAR of each individual species (or SI descriptor in unconjugated cases)
 
-**Sum_Intensity** – deconvoluted peak intensity (used as abundance measure)
+ * **Sum_Intensity** – deconvoluted peak intensity (used as absolute abundance measure)
 
-**Mass** – experimental deconvoluted mass
+ * **Mass** – experimental deconvoluted mass
 
-Additional metadata (timepoint, concentration, matrix type, study ID, etc.)
+* Additional metadata (timepoint, concentration, matrix type, study ID, etc.)
+
 You can either:
 
-Export a deconvolution table (e.g. from BioPharma Finder) and adapt it manually following the template, or
-Use a helper script (if provided) that converts vendor output into the BioDRUMs template format.
+Export a deconvolution table (e.g. from BioPharma Finder) and adapt it manually following the template, or use a helper script (if provided) that converts vendor output into the BioDRUMs template format.
+
 The repository includes:
 
 templates/unified_DAR_template.xlsx – minimal working example
+
 examples/ – example input and corresponding outputs for the use cases in the paper (in vitro stability and PK studies)
-Modules & Workflow
-1. Deconvoluted_mass_finder.py
+
+**Modules & Workflow**
+
+**1. Deconvoluted_mass_finder.py**
+
 This module (with a GUI) is used to generate proteoform structure hypotheses and theoretical intact masses before DAR/SI analysis.
 
 
-Capabilities:
+**Capabilities:**
 
-Correct the protein (or subunit) mass for:
+**Correct the protein (or subunit) mass for:**
 
-Paired cysteines involved in disulfide bonds or conjugation
-Engineered cysteines or hinge mutations (e.g. IgG4 stabilization, site‑specific conjugation)
+* Paired cysteines involved in disulfide bonds or conjugation (in case of cysteine-conjugated proteins, do not include this in the paired cysteines count)
+
+* Engineered cysteines or hinge mutations (e.g. IgG4 stabilization, site‑specific conjugation)
+  
 Define:
 
-Theoretical DAR ladder (from DAR0 up to a specified maximum)
-Linker–payload mass shifts (e.g. valine‑citrulline PABC MMAE; supports transglutaminase and interchain/engineered cysteine conjugation)
-Potential linker–payload degradation products (for in vivo experiments)
+**Theoretical DAR ladder (from DAR0 up to a specified maximum)**
+
+* Linker–payload mass shifts (e.g. valine‑citrulline PABC MMAE; supports transglutaminase and interchain/engineered cysteine conjugation, but also click-chemistry or other conjugation types according to user's needs)
+
+* Potential linker–payload degradation products (for in vivo experiments)
+
 Include:
 
-Main glycosylated proteoforms (intact or at chain level), when deglycosylation is not possible
-Deglycosylated forms (e.g. after PNGase‑F treatment)
+* Main glycosylated proteoforms (intact or at chain level), when deglycosylation is not possible ot residual glycoforms are still present in the sample after deglycosylation
 
-Output:
+* Deglycosylated forms (e.g. after PNGase‑F treatment)
+
+**Output:**
 
 A comprehensive Excel list of all predicted proteoforms, their DAR values, and the number of isobaric species per DAR level within the chosen mass tolerance
 
-Typical GUI steps
+**Typical GUI steps**
+
 Specify:
 
-Protein sequence / backbone mass
-Number and position of cysteines participating in disulfide bonds or conjugation
-Maximum DAR and linker–payload mass + degradation products
-Glycan masses / repertoire (if working with glycosylated samples)
+* Protein sequence / backbone mass
+
+* Number and position of cysteines participating in disulfide bonds or conjugation
+
+* Maximum DAR and linker–payload mass + degradation products
+
+* Glycan masses / repertoire (if working with glycosylated samples)
+
 Set:
 
-Mass accuracy tolerance (e.g. ±30 ppm)
-Whether the dataset is glycosylated or deglycosylated
+* Mass accuracy tolerance (e.g. ±20 ppm, but it can be modified by the user)
+* Relative abundance tolerance (e.g., set default as 4% of the base peak in MS)
+
 Run hypothesis generation to produce:
 
-Proteoform list with theoretical masses
-Isobaric species statistics
-Exported Excel file for subsequent matching with experimental deconvoluted masses
-2. unified_DAR_analysis.py
-This module performs the core DAR/SI calculations, QC metrics, and plotting, operating on the template Excel file that links experimental deconvoluted peaks to predicted proteoforms.
+* Proteoform list with theoretical masses
 
+* Isobaric species statistics
+
+* Exported Excel file for subsequent matching with experimental deconvoluted masses
+
+**2. unified_DAR_analysis.py**
+
+This module performs the core DAR/SI calculations, QC metrics, and plotting, operating on the template Excel file that links experimental deconvoluted peaks to predicted proteoforms.
 
 Functions:
 
-Mean DAR / SI calculation
+**Mean DAR / SI calculation**
 
 Uses Equation 1 in the paper to compute mean DAR across all identified species at a given timepoint or concentration (intensity‑weighted average over DAR values). For SI, analogous calculations are performed using SI = 1 for intact full‑length species and SI = 0 for non‑intact species.
 
 
-Explained area percentage (%)
+**Explained area percentage (%)**
 
 Calculates the percentage of total deconvoluted peak area that is assigned to modeled species.
-Typical acceptance threshold: ≥ 75% for good characterization (may drop near LOD, especially in in vivo samples).
 
-DAR / proteoform species characterization
+Typical acceptance threshold: ≥ 75% for good characterization (may drop near Limit Of Detection, especially in in vivo samples).
+
+**DAR / proteoform species characterization**
 
 For each timepoint/concentration, plots the relative intensity % of each identified species versus the total identified signal.
+
 Assigns a unique Species ID to each proteoform and writes an Excel mapping (Species_ID_Mapping sheet).
 
-GUI workflow
+**GUI workflow**
+
 The GUI allows you to:
 
 Select the input metadata Excel file (compiled template).
 
 Set:
 
-Molecule ID
-Study type (e.g. in vitro stability, PK)
-Matrix (e.g. plasma)
-X‑axis variable (e.g. time, concentration)
-Indicate whether to compute DAR (conjugates) or SI (unconjugated biologics)
+* Molecule ID
+
+* Study type (e.g. in vitro stability, PK)
+
+* Matrix (e.g. plasma)
+
+* X‑axis variable (e.g. time, concentration)
+
+* Indicate whether to compute DAR (conjugates) or SI (unconjugated biologics)
 
 Run the analysis to generate:
 
-Plots of mean DAR or SI versus time/concentration
-Explained area % versus time/concentration
-Stacked plots of relative abundance of each species versus time/concentration
-Excel reports, including Species ID mapping
+* Plots of mean DAR or SI versus time/concentration
+
+* Explained area % versus time/concentration
+
+* Stacked plots of relative abundance of each species versus time/concentration
+
+* Excel reports, including Species ID mapping
 
