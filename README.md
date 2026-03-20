@@ -1,10 +1,12 @@
 # BioDRUMs
 
 **Getting started**
-A Python pipeline to streamline mean Drug‑to‑Antibody Ratio (DAR) and biologics structural integrity (SI) analysis from high‑resolution mass spectrometry (HRMS) data
+
+BioDRUMs (Biologics Drug Ratio & Unified intact Mass analysis) is a Python pipeline to streamline mean Drug‑to‑Antibody Ratio (DAR) and biologics structural integrity (SI) analysis from high‑resolution mass spectrometry (HRMS) data
 <img width="900" height="600" alt="Figure 1" src="https://github.com/user-attachments/assets/3f820de9-8756-4976-ac62-582c1bb6d4bc" />
 
 **Overview**
+
 BioDRUMs (Biologics Drug Ratio & Unified intact Mass analysis) is a Python pipeline with a graphical user interface (GUI) for automating:
 
 **Mean drug‑to‑antibody ratio (DAR)** analysis of antibody-drug conjugates (ADCs) and other bioconjugates
