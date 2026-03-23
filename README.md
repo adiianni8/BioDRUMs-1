@@ -206,13 +206,30 @@ Set:
 
 * Indicate whether to compute DAR (conjugates) or SI (unconjugated biologics)
 
+**Output files**
+
 Run the analysis to generate:
 
-* Plots of mean DAR or SI versus time/concentration
+* Plots of mean DAR or SI versus time/concentration (.png)
 
-* Explained area % versus time/concentration
+* Explained area % versus time/concentration (.png)
 
-* Stacked plots of relative abundance of each species versus time/concentration
+* Stacked plots of relative abundance of each species versus time/concentration (.png)
 
-* Excel reports, including Species ID mapping
+* Excel reports (DAR summary sheet from your template file), including Species ID mapping (.xlsx)
 
+**Example use cases**
+
+**Use case 1 – Mean DAR of a Trastuzumab ADC in an in vitro plasma stability study**
+
+**Molecule:** Trastuzumab conjugated via a maleimide valine‑citrulline PABC MMAE linker on an engineered cysteine (C442) in the CH3 domain (maximum DAR 2).
+
+**Samples:** Mouse plasma stability 0–168 h, deglycosylated with PNGase‑F to reduce isobaric ambiguity.
+
+**Results (see paper Figures 4–5):**
+
+* Mean DAR remains within 20% loss compared to t0, indicating good linker–payload stability.
+* Explained area % stays above 75% for all timepoints.
+* 21 ADC species identified and tracked over time.
+
+This workflow is fully reproducible in BioDRUMs with the provided example dataset and template
