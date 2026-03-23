@@ -222,7 +222,7 @@ Run the analysis to generate:
 
 **Use case 1 – Mean DAR of a Trastuzumab ADC in an in vitro plasma stability study**
 
-**Molecule:** Trastuzumab conjugated via a maleimide valine‑citrulline PABC MMAE linker on an engineered cysteine (C442) in the CH3 domain (maximum DAR 2).
+**Molecule:** Trastuzumab conjugated via a maleimide valine‑citrulline PABC MMAE linker on an engineered cysteine in the CH3 domain (maximum DAR 2).
 
 **Samples:** Mouse plasma stability 0–168 h, deglycosylated with PNGase‑F to reduce isobaric ambiguity.
 
