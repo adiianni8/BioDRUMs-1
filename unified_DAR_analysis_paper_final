@@ -149,7 +149,7 @@ for col in numeric_columns:
         df[col] = pd.to_numeric(df[col], errors='coerce')
 
 # Filter the dataset based on your criteria
-threshold_value = 85  # Example threshold for Matched Mass Error in ppm
+threshold_value = 30  # Example threshold for Matched Mass Error in ppm
 fractional_abundance_threshold_value = 4 # Example threshold for Fractional Abundance in %
 
 filtered_df = df[(df['Matched Mass Error (ppm)'] < threshold_value) &
