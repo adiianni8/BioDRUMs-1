@@ -3,7 +3,7 @@ import glob
 import os
 
 # Folder containing your Excel files
-folder_path = "O:\\Bioanalytical\\LC_MS&FD\\LC_MS\\STUDI\\ADC\\2026\\26IV-0002  Protac DAC Q-006234 PK C57BL_6N Mice intact mass\\LC-HRMS\\Results\\G1_PPB-49273\\PK samples\\consensus_workbook"
+folder_path = "yourpathtoDARexcelsheet\\DARexcelsheet.xlsx"
 
 # Get all Excel files in the folder
 excel_files = glob.glob(os.path.join(folder_path, "*.xlsx"))
