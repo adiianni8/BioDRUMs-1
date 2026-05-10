@@ -11,7 +11,7 @@ excel_files = glob.glob(os.path.join(folder_path, "*.xlsx"))
 header_mapping = {"Sequence Name": "Protein Name"}
 
 # Output file
-output_file = "combined_workbook_PPB-49273_G1.xlsx"
+output_file = "combined_workbook_ADC.xlsx"
 
 # Create a writer object
 with pd.ExcelWriter(output_file, engine="openpyxl") as writer:
